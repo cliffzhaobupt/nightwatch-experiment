@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Nightwatch Test</title>
+  <style type="text/css">
+    .content {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <input class="show-content-btn" type="button" value="Show Lyric">
+    <div class="content">
+      <p>Say say say you love me</p>
+      <p>無法無天 狠狠愛</p>
+    </div>
+  </div>
+
+  <div>
+    <p>
+      <input class="num-to-add-1" type="text">
+      <span class="add-mark">+</span>
+      <input class="num-to-add-2" type="text">
+      <span class="equal-mark">=</span>
+      <span class="add-result"></span>
+    </p>
+    <p>
+      <input class="calculate-btn" type="button" value="Calculate">
+    </p>
+  </div>
+
+  <div>
+    <input class="get-json-btn" type="button" value="Get JSON">
+    <div class="json-content"></div>
+  </div>
+
+  <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+  <script type="text/javascript">
+    $('.show-content-btn').on('click', function() {
+      $('.content').fadeIn(1000);
+    });
+
+    var parseIntFromTextField = function(textField) {
+      return (parseInt(textField.val()) || 0);
+    };
+
+    $('.calculate-btn').on('click', function() {
+      $('.add-result').text(
+        parseIntFromTextField($('.num-to-add-1')) +
+          parseIntFromTextField($('.num-to-add-2'))
+        )
+    });
+
+    $('.get-json-btn').on('click', function() {
+      $.getJSON('/data.json', {}, function(data) {
+        var nameElements = $.map(data, function(name) {
+            return [
+              '<p class="name">',
+              name,
+              '</p>'
+            ].join('');
+          });
+        $('.json-content').html(nameElements.join(''));
+      });
+    });
+  </script>
+</body>
+</html>

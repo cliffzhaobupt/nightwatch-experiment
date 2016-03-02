@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="0"
+            tests="3">
+
+  <testsuite name="index-test"
+    errors="0" failures="0" hostname="" id="" package="index-test" skipped="0"
+    tests="3" time="6.273" timestamp="Wed, 02 Mar 2016 15:10:02 GMT">
+  
+    <testcase name="Test fade in" time="4.808" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Test add calculate" time="0.4710" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Test get JSON" time="0.9940" assertions="4">
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+  
+  </testsuite>
+</testsuites>
